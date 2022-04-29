@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Libreria Spring-Maven</title>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link href="css/formStyle.css" rel="stylesheet" />
+                </head>
+                <body>
+                    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top" id="nav1">
+                        <div class="container px-5">
+                            <a class="navbar-brand" href="/">LIBRERIA SPRING V1.0</a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                            <div class="collapse navbar-collapse" id="navbarResponsive">
+                                <ul class="navbar-nav ms-auto" id="ul1">
+                                    <li class="nav-item"><a class="nav-link" href="/libros">Libros</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/autores">Autores</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/editoriales">Editoriales</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/singUp">Sign Up</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/logIn">Log In</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                    <div id="a1">
+                        <h1 id="h1"> AUTORES </h1>
+
+                        <h2> INGRESAR AUTOR </h2>
+                        <form action="/agregarAu" method="POST">
+                            <label> Nombre </label> 
+                            <br>
+                                <input type="text" class="form-control" name="nombre" placeholder=" Ingrese Nombre del Autor" id="inp1">
+                                    <br>
+                                        <button type="submit" class="btn btn-primary" id="btn1">Guardar</button>
+
+
+                                        </form>
+                                        <br>
+                                            <h1 id="h1b"> LISTAR AUTORES </h1>
+                                            <form action="/listarAu" method="POST">
+                                             <button type="submit" class="btn btn-primary" id="btn2">Listar</button>
+                                            </form>
+                                            <div class="container mt-4" id="div1">
+                                                <table class="table" id="table1">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col" id="co11">ID</th>
+                                                            <th scope="col" id="co11">Nombre</th>
+                                                            <th scope="col" id="co11">Estado</th>
+                                                            <th scope="col"></th>
+                                                            <th scope="col" id="co12">Acciones</th>
+                                                            <th scope="col"></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="table1">
+                                                        <tr th:each="autor:${autores}">
+                                                            <td th:text="${autor.idA}" id="td2"></td>
+                                                            <td th:text="${autor.nombre}" id="td2"></td>
+                                                            <td th:text="${autor.alta}"></td>
+                                                            <td id="td1">
+                                                                <form action="/modificarAu" method="POST">
+                                                                    <button type="submit" class="btn btn-primary" id="btn3">Modificar</button>
+                                                                </form>
+                                                            </td>
+                                                            <td id="td1">
+                                                                <form action="/darBajaAu" method="POST">
+                                                                    <button type="submit" class="btn btn-primary" id="btn3">Dar Baja</button>
+                                                                </form>
+                                                            </td>
+                                                            <td id="td1">
+                                                                <form action="/darAltaAu" method="POST">
+                                                                    <button type="submit" class="btn btn-primary" id="btn3">Dar Alta</button>
+                                                                </form>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <br>
+                                                </div>
+
+
+                                                </body>
+                                                </html>

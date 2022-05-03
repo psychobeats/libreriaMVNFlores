@@ -56,9 +56,9 @@ public class AutorServicio {
     }
 
     @Transactional(propagation = Propagation.NESTED)
-    public void modificarAutor(String id, String nombre) throws ErrorServicio {
+    public void modificarAutor(String idA, String nombre) throws ErrorServicio {
 
-        Optional<Autor> autorABuscar = AutorRepositorio.findById(id);
+        Optional<Autor> autorABuscar = AutorRepositorio.findById(idA);
 
         if (autorABuscar.isPresent()) {
             Autor autor = autorABuscar.get();
@@ -75,9 +75,9 @@ public class AutorServicio {
     }
 
     @Transactional(propagation = Propagation.NESTED)
-    public void darBajaAutor(String id) throws ErrorServicio {
+    public void darBajaAutor(String idA) throws ErrorServicio {
 
-        Optional<Autor> autorABuscar = AutorRepositorio.findById(id);
+        Optional<Autor> autorABuscar = AutorRepositorio.findById(idA);
 
         if (autorABuscar.isPresent()) {
             Autor autor = autorABuscar.get();
@@ -94,9 +94,9 @@ public class AutorServicio {
     }
 
     @Transactional(propagation = Propagation.NESTED)
-    public void darAltaAutor(String id) throws ErrorServicio {
+    public void darAltaAutor(String idA) throws ErrorServicio {
 
-        Optional<Autor> autorABuscar = AutorRepositorio.findById(id);
+        Optional<Autor> autorABuscar = AutorRepositorio.findById(idA);
 
         if (autorABuscar.isPresent()) {
             Autor autor = autorABuscar.get();
@@ -112,6 +112,11 @@ public class AutorServicio {
 
     }
     
+    public Autor buscarPorId(String idA) {
+        return AutorRepositorio.buscarPorId(idA);
+    }
+
+    
     @Transactional(readOnly = true)
     public List<Autor> listarTodos() throws ErrorServicio {
 
@@ -122,5 +127,7 @@ public class AutorServicio {
         }
 
     }
+    
+    
 
 }

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Libreria Spring-Maven</title>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link href="css/formStyle.css" rel="stylesheet" />
+                </head>
+                <body>
+                    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top" id="nav1">
+                        <div class="container px-5">
+                            <a class="navbar-brand" href="/">LIBRERIA SPRING V1.0</a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                            <div class="collapse navbar-collapse" id="navbarResponsive">
+                                <ul class="navbar-nav ms-auto" id="ul1">
+                                    <li class="nav-item"><a class="nav-link" href="/libros">Libros</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/autores">Autores</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/editoriales">Editoriales</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/singUp">Sign Up</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/logIn">Log In</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                    <div id="a1">
+                        <h1 id="h1"> AUTORES </h1>
+
+                        <h2> MODIFICAR AUTOR </h2>
+                        <form action="/modificarAu" method="POST">
+                            <label> Nombre </label> 
+                            <br>
+                                <p th:if="${error != null}" th:text="${error}" style="color: red"> </p>
+                                
+                                    <input type="hidden" class="form-control" name="idA" th:value="${idA}">
+                                        <input type="text" class="form-control" name="nombre" th:value="${nombre}" placeholder=" Modifique el Nombre del Autor" id="inp1">
+                                           
+
+                                            <br>
+                                                <button type="submit" class="btn btn-primary" id="btn1">Modificar</button>
+                                           
+
+                                                </form>
+                                                <br>
+
+                                                    </body>
+                                                    </html>
+
+
+
+

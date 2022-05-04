@@ -57,8 +57,9 @@ public class autorControlador {
       @GetMapping("/modificarAu")
     public String modificarAu(RedirectAttributes redirectAttributes,@RequestParam String idA, ModelMap model){
 
+        Autor autor = autorServicio.buscarPorId(idA);
         try {
-            Autor autor = autorServicio.buscarPorId(idA);
+            
             model.put("autor", autor);
             return "modificarAu.html";
             

@@ -61,10 +61,12 @@ and open the template in the editor.
                                                         <tr th:each="autor:${autores}">
                                                             <td th:text="${autor.idA}" id="td2"></td>
                                                             <td th:text="${autor.nombre}" id="td2"></td>
-                                                            <td th:text="${autor.alta}"></td>
+                                                            <td th:if="${autor.alta == true}" style="color: green">ALTA</td>
+                                                            <td th:if="${autor.alta == false}" style="color: red">BAJA</td>
                                                             <td id="td1">
                                                                 <form action="/modificarAu" method="GET">
-                                                                    <input type="hidden" name="idA" th:value="${autor.idA}"/>
+                                                                   
+                                                                    <input type="hidden" name="idA" th:value="${autor.idA}">
                                                                    
                                                                     <button type="submit" class="btn btn-primary" id="btn3">Modificar</button>
                                                                     
